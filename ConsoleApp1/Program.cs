@@ -166,15 +166,35 @@ public Student(string name, int rollNo):base(name)
 }
 
 
-abstract class Animal
+//abstract class Animal
+//{
+//    public abstract void MakeSound();  // No implementation
+//}
+
+//class Dog : Animal
+//{
+//    public override void MakeSound()
+//    {
+//        Console.WriteLine("Dog barks.");
+//    }
+//}
+
+
+
+
+//Runtime polymorphism (Method Overriding)
+class Animal
 {
-    public abstract void MakeSound();  // No implementation
+    public virtual void MakeSound()
+    {
+        Console.WriteLine("Animal speaks");
+    }
 }
 
 class Dog : Animal
 {
     public override void MakeSound()
     {
-        Console.WriteLine("Dog barks.");
+        Console.WriteLine("Dog barks");
     }
 }
