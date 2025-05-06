@@ -2,395 +2,179 @@
 
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Xml.Linq;
 
 
+Console.WriteLine("the parent class /////////////////////");
+Console.WriteLine();
+rectangler rec = new rectangler();
+rec.setlength(10);
+rec.setwidth(10);
+rec.setbread(10);
 
 
 
-//hello weam
-
-//string name="";
-//Console.Write("Enter ur name: ");
-//name=Console.ReadLine();
-//Console.WriteLine("hi " +name);
+double volume=rec.getvolume();
+Console.WriteLine(volume);
 
-///////////////////////////// if conditions"
-//Console.Write ("Enter ur age: ");
-//int age =int.Parse(Console.ReadLine());                          
-//int age = Convert.ToInt32(Console.ReadLine());           // Convert the input to be int (from string to int)
+Console.WriteLine();    
+Console.WriteLine("the inhertied class /////////////////////");
+Console.WriteLine();
 
-//if (age <= 10)
-//{
-//    Console.WriteLine("You are eligible to vote!");
-//}
-//else if(age >=11 && age <=50) {
-//    Console.WriteLine("hhhhhhhhhhh");
-//}
-//else
-//{
-//    Console.WriteLine("Sorry, you must be 18+ to vote.");
-//}
+tableTop t = new tableTop();
+t.setlength(10);
+t.setwidth(10);
+t.setbread(10);
+Console.WriteLine($"the volume of the rectanglar itself is: {t.getvolume()}");
+t.display();
 
-//////////////////////////////////////////////////////////////////////////////
 
-//Console.Write("Enter the temp: ");
+Console.WriteLine();
+Console.WriteLine("/////////////////////");
+Console.WriteLine();
 
-////temp = Convert.ToInt32(Console.ReadLine());                        //convert from string to int 
+Student stud=new Student("weam",25);
+stud.Display();
 
-//int temp;
-//temp = 20;
-//if (temp>0)
-//{
-//    if (temp < 15) { Console.WriteLine("cold day"); }
-//    else if (temp>=15 && temp<25) { Console.WriteLine("the wheather is plesent"); }   
-//    else { Console.WriteLine("its hot day"); }
 
-//}
-//else
-//{
-//    Console.WriteLine("its freeeeeeeeeeeeezing outside! ");
-//}
 
 
+Console.WriteLine();
+Console.WriteLine("/////////////////////");
+Console.WriteLine();
+StaticVar s1 = new StaticVar();
+StaticVar s2 = new StaticVar();
 
+Console.WriteLine(s1.getNum());//0
+s1.count();
+Console.WriteLine(s1.getNum());//1
+s1.count();
+Console.WriteLine(s1.getNum());//2
+s1.count();//3
 
 
-//////////////////////////////////////////////////////////////// if conditions
-//int a = 100;
+s2.count();//4
+s2.count();//5
+s2.count();//6
 
-///* check the boolean condition */
-//if (a == 100)
-//{
-//    /* if condition is true then print the following */
-//    Console.WriteLine("Value of a is 100");
-//}
-//else if (a == 20)
-//{
-//    /* if else if condition is true */
-//    Console.WriteLine("Value of a is 20");
-//}
-//else if (a == 30)
-//{
-//    /* if else if condition is true  */
-//    Console.WriteLine("Value of a is 30");
-//}
-//else
-//{
-//    /* if none of the conditions is true */
-//    Console.WriteLine("None of the values is matching");
-//}
-//Console.WriteLine("Exact value of a is: {0}", a);
+Console.WriteLine("Variable num for s1: {0}", s1.getNum());
+Console.WriteLine("Variable num for s2: {0}", s2.getNum());
 
-//Console.WriteLine("///////////////////////////// ");
-//string[] obaaa = new string[] {"oba1","obaaaaa2","oaba3" };
-//foreach (var item in obaaa)
-//{
-//    if (item.Length >= 5)
-//    {
-//        Console.WriteLine("ok");
-//    }
 
-//}
 
+Console.WriteLine();
+Console.WriteLine("/////////////////////");
+Console.WriteLine();
 
-///////////////////////////////////////////////////////////////////////////////switch 
-//char grade='B';
-//switch (grade){
+Dog Mydog=new Dog();
+Mydog.MakeSound(); 
 
-//    case 'a':Console.WriteLine("exellant");
-//        break;
-//    case 'B':
-//        Console.WriteLine("very good");
-//        break;
-//    case 'c':
-//        Console.WriteLine("good");
-//        break;
-//    case 'D':
-//        Console.WriteLine("passed");
-//        break;
 
-//}
+//class
 
-
-
-
-
-
-/////////////////////////////////////////////////////////////////////////for loooops"
-
-
-//string[] students = { "weam", "bassant", "amany" };
-//int[] numbers = new int[] { 9, 7, 6 };
-//foreach (var student in students)
-//{
-//    Console.WriteLine(student);
-//}
-//{
-
-//}
-
-//string[] fruits = new string[] { "aaa", "bbb", "sss" };
-//for (int i = 0; i <fruits.Length ; i++)
-//{
-//    Console.WriteLine(fruits[i]);
-//}
-
-
-
-//////////////////////////////////////////////////////////////////////the while loop
-//int count = 1;
-//while (count <= 3)
-//{
-//    Console.WriteLine(count);
-
-//    count++;
-//}
-//int n = 5, sum = 0, ii = 1;
-//while (ii <= n)
-//{
-//    sum += ii;
-//    ii++;
-//}
-//Console.WriteLine("sumis : "+ sum);
-
-
-
-
-
-//static void greet( string name)
-//{
-//    Console.WriteLine("hello " + name);
-//}
-
-//greet("weam");
-//Console.WriteLine("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
-
-
-
-
-
-//A aa = new A("aman");
-
-//A a = new A();
-
-//A.Print();
-
-
-//public  class A
-//{
-//    public string Name { get; set; }
-
-//    public A(string n )
-//    {
-//        Name = n;
-//    }
-//    public  static void Print()
-//    {
-//        Console.WriteLine("print");
-//    }
-
-//    public static void Print2()
-//    {
-//        Console.WriteLine("print 2222222");
-//        Print();
-//    }
-//}
-
-
-
-
-
-
-//Car mycar = new Car();
-//mycar.Brand = "tesla";
-//mycar.num = 66;
-//Console.WriteLine(mycar.num);
-//mycar.ShowBrand();
-//mycar.secret();
-
-
-//student obj=new student();
-//obj.name = "alaa";
-//obj.year = 7;
-//obj.subjectNum = 4;
-//obj.displayStudentInfo();
-
-//////////////////////////////////////////////////////// <summary>
-//encapsulation
-/// </summary>
-//BankAccount user = new BankAccount(100);
-//user.deposit  (5);
-//user.GetBalance();
-
-
-//testing Clone - ref type::
-//string name = "we";
-//string n = name;
-
-//Console.WriteLine($"name {name} ");
-//Console.WriteLine($"n {n}");
-
-
-//modify string
-
-//Console.WriteLine("Modify string");
-//name = "ttttt";
-//Console.WriteLine($"name {name} ");
-//Console.WriteLine($"n {n}");
-
-
-
-
-//unsafe
-//{
-
-
-//    string original = "Hii, TutorialsPoint!";
-//    string cloned = original.Clone().ToString();
-//    // Get address of the first character in the heap
-//    fixed (char* ptrP = original)
-//    {
-//        Console.WriteLine($"Heap Address ORIGINAL: {(ulong)ptrP:X}");
-//        Console.WriteLine($"Value at heap: {*ptrP}"); // Should print 'h'
-//    }
-
-//    // Stack variable example
-//    original = "WWWewwwwww";
-//    fixed (char* ptrP2 = original)
-//    {
-//        Console.WriteLine($"Heap Address ORIGINAL: {(ulong)ptrP2:X}");
-//        Console.WriteLine($"Value at heap: {*ptrP2}"); // Should print 'h'
-//    }
-
-//}
-
-
-person p1 = new person("Sudhir Sharma", 27, "SEO01");
-Console.WriteLine($"Name: {p1.name}, Age: {p1.age}, Employee ID: {p1.empid}");
-
-
-
-
-
-
-SavingAccount mysavings = new SavingAccount(100m);
-mysavings.AddIntersts(0.5m);
-mysavings.GetBalance();
-
-string[] array = {
-    "hello",
-    "from",
-    "office" };
-
-string message=string.Join(" ", array);
-Console.WriteLine("Message: {0} ", message);
-
-DateTime waiting = new DateTime(2012, 10, 10, 17, 58, 1);
-string chat = String.Format("Message sent at {0:t} on {0:D}", waiting);
-Console.WriteLine("Message: {0}", chat);
-string str = "fff";
-foreach (char ch in str)
+class rectangler
 {
-    Console.WriteLine(ch);
-}
-string str1 = "haaai";
-string str2 = "kkk";
+    private double length;
+    private double height;
+    private double breadth;
+    public double volume;
 
-if (string.Compare(str1, str2) == 0)
-{
-    Console.WriteLine("equal");
-
-}
-else { Console.WriteLine("Not equal"); };
-//classes
-//\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
-public class BankAccount
-{
-    protected decimal balance;
-    public BankAccount(decimal intial_balance)
+    public rectangler ()
     {
-        if (intial_balance > 0)
+        Console.WriteLine("the project created");
+    }
+    ~rectangler()
+    {
+        Console.WriteLine("the project deleted");
+
+    }
+    public void setlength(double len)
+    {
+        length = len;
+       
+    }
+    public void setwidth(double he)
+    {
+        height = he;
+
+    }
+    public void setbread(double bread)
+    {
+        breadth = bread;
+
+    }
+    public double getvolume() {
+        volume =length *breadth *height;
+        return volume;
+
+    }
+
+}
+
+
+class tableTop : rectangler
+{
+    private double cost;
+
+    public double getcost()
+    {
+        
+        cost = getvolume() * 70;
+        return cost;
+    }
+    public void display()
+    {
+        Console.WriteLine($"the cost is :{getcost()}");
+    }
+}
+class StaticVar
+{
+    public static int num;
+
+    public void count()
+    {
+        num++;
+    }
+    public int getNum()
+    {
+        return num;
+    }
+}
+
+
+class Person
+{
+    public string Name;
+    public Person(string name)
+    {
+        Name = name;
+    }
+}
+class Student : Person
+    {
+        public int RollNo;
+
+public Student(string name, int rollNo):base(name)
+{
+            RollNo = rollNo;
+        }
+
+        public void Display()
         {
-            balance = intial_balance;
+            Console.WriteLine($"Name: {Name}, Roll No: {RollNo}");
         }
-
-    }
-    public void deposit(decimal amount)
-    {
-        if (amount > 0)
-        { 
-            balance += amount;
-        }
-
-    }
-    public decimal GetBalance()
-    {
-        Console.WriteLine("the balance is : "+balance);
-    return balance; }
-}
-public class SavingAccount : BankAccount
-{
-    public SavingAccount(decimal intial_balance) : base(intial_balance)
-    {
-    }
-    public void AddIntersts(decimal interstRate) 
-    {
-        if (interstRate > 0) { 
-        decimal intersts= interstRate*balance;
-            balance += intersts;
-                }
-    
-    }
-}
-/// <summary>
-/// //////////////////////////////end class of capsulation
-/// </summary>
-/// 
-
-public class Car
-{
-    public string Brand;
-    public int num;
-    public void ShowBrand()
-    {
-        Console.WriteLine("my car brand is "+Brand);
-    }
-
-
-    private int numberrr = 99999;
-    public void secret()
-    {
-        Console.WriteLine("the scert nuber is :" + numberrr);
-
-   }
-}
-
-public class student
-{
-    public string name;
-    public int year;
-    public int subjectNum;
-
-    public void displayStudentInfo()
-    {
-        Console.WriteLine(name);
-        Console.WriteLine(year);
-        Console.WriteLine(subjectNum);
-    }
 }
 
 
-struct person
+abstract class Animal
 {
-    public string name;
-    public int age;
-    public string empid;
+    public abstract void MakeSound();  // No implementation
+}
 
-    public person(string name, int age, string empid)
+class Dog : Animal
+{
+    public override void MakeSound()
     {
-        this.name = name;
-        this.age = age;
-
+        Console.WriteLine("Dog barks.");
     }
 }
