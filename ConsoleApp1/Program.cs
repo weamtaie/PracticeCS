@@ -5,165 +5,66 @@ using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
 
 
-Console.WriteLine("the parent class /////////////////////");
-Console.WriteLine();
-rectangler rec = new rectangler();
-rec.setlength(10);
-rec.setwidth(10);
-rec.setbread(10);
-
-
-
-double volume=rec.getvolume();
-Console.WriteLine(volume);
-
-Console.WriteLine();    
-Console.WriteLine("the inhertied class /////////////////////");
-Console.WriteLine();
-
-tableTop t = new tableTop();
-t.setlength(10);
-t.setwidth(10);
-t.setbread(10);
-Console.WriteLine($"the volume of the rectanglar itself is: {t.getvolume()}");
-t.display();
-
-
-Console.WriteLine();
-Console.WriteLine("/////////////////////");
-Console.WriteLine();
-
-Student stud=new Student("weam",25);
-stud.Display();
-
-
-
-
-Console.WriteLine();
-Console.WriteLine("/////////////////////");
-Console.WriteLine();
-StaticVar s1 = new StaticVar();
-StaticVar s2 = new StaticVar();
-
-Console.WriteLine(s1.getNum());//0
-s1.count();
-Console.WriteLine(s1.getNum());//1
-s1.count();
-Console.WriteLine(s1.getNum());//2
-s1.count();//3
-
-
-s2.count();//4
-s2.count();//5
-s2.count();//6
-
-Console.WriteLine("Variable num for s1: {0}", s1.getNum());
-Console.WriteLine("Variable num for s2: {0}", s2.getNum());
-
-
-
-Console.WriteLine();
-Console.WriteLine("/////////////////////");
+Console.WriteLine("-----------");
 Console.WriteLine();
 
 Dog Mydog=new Dog();
-Mydog.MakeSound(); 
+Mydog.MakeSound();
+
+Console.WriteLine();
+Console.WriteLine("-----------");
+Console.WriteLine();
+
+DataPrint dataPrint = new DataPrint();
+dataPrint.print(2);
+dataPrint.print("hi 2");
+dataPrint.print(2.2);
 
 
+Console.WriteLine();
+Console.WriteLine("-----------");
+Console.WriteLine();
+
+Point a = new Point(1,2);
+Point b = new Point(2,3);
+
+Point c = a + b;
+Console.WriteLine($"the result is :{c}");
+
+Console.WriteLine();
+Console.WriteLine("-----------");
+Console.WriteLine();
+
+Rectangle r = new Rectangle(10, 7);
+int RecArea=r.area();
+Console.WriteLine($"Rectangle class area :{ RecArea}");
+
+Triangle t = new Triangle(10, 5);
+int TraiArea = t.area();
+Console.WriteLine($"traingle class area :{TraiArea}");
+
+Shape sh = new Shape();
+
+Caller c1 =new Caller();
+Caller.CallArea(sh);
+
+Caller.CallArea(t);
+Caller.CallArea(r);
+c1.Print();
+
+
+Console.WriteLine();
+Console.WriteLine("-----------");
+Console.WriteLine();
+
+IAnimal animal;
+animal=new Lion();
+animal.MakeSound();
+
+
+animal = new Cat();
+animal.MakeSound();
 //class
-
-class rectangler
-{
-    private double length;
-    private double height;
-    private double breadth;
-    public double volume;
-
-    public rectangler ()
-    {
-        Console.WriteLine("the project created");
-    }
-    ~rectangler()
-    {
-        Console.WriteLine("the project deleted");
-
-    }
-    public void setlength(double len)
-    {
-        length = len;
-       
-    }
-    public void setwidth(double he)
-    {
-        height = he;
-
-    }
-    public void setbread(double bread)
-    {
-        breadth = bread;
-
-    }
-    public double getvolume() {
-        volume =length *breadth *height;
-        return volume;
-
-    }
-
-}
-
-
-class tableTop : rectangler
-{
-    private double cost;
-
-    public double getcost()
-    {
-        
-        cost = getvolume() * 70;
-        return cost;
-    }
-    public void display()
-    {
-        Console.WriteLine($"the cost is :{getcost()}");
-    }
-}
-class StaticVar
-{
-    public static int num;
-
-    public void count()
-    {
-        num++;
-    }
-    public int getNum()
-    {
-        return num;
-    }
-}
-
-
-class Person
-{
-    public string Name;
-    public Person(string name)
-    {
-        Name = name;
-    }
-}
-class Student : Person
-    {
-        public int RollNo;
-
-public Student(string name, int rollNo):base(name)
-{
-            RollNo = rollNo;
-        }
-
-        public void Display()
-        {
-            Console.WriteLine($"Name: {Name}, Roll No: {RollNo}");
-        }
-}
 
 
 //abstract class Animal
@@ -196,5 +97,122 @@ class Dog : Animal
     public override void MakeSound()
     {
         Console.WriteLine("Dog barks");
+    }
+}
+
+//Function Overloading
+class DataPrint
+{
+    public void print(int i)
+    {
+        Console.WriteLine(i);    
+    }
+    public void print(double f)
+    {
+        Console.WriteLine(f);
+    }
+    public void print(string s)
+    {
+        Console.WriteLine(s);
+    }
+}
+
+class Point
+{
+    private int X;
+    private int Y; 
+
+    public Point (int x, int y)
+    {
+        X = x;  
+        Y = y;
+    }
+
+    public static Point operator +(Point p1, Point p2)
+    {
+        return new Point((p1.X+ p1.Y),(p2.X+p2.Y));
+    }
+    //The ToString() method is
+    //a function (or method)
+    //designed to return a string
+    //representation of an object.
+    public override string ToString()
+    {
+        return $"({X}, {Y})";
+    }
+}
+
+
+////////////////////////////////////////////////
+public class Shape {
+protected int width, height;
+
+public Shape(int a = 0, int b = 0)
+{
+    width = a;
+    height = b;
+}
+public virtual int area()
+{
+    Console.WriteLine("Parent class area :");
+    return 0;
+}
+   }
+   class Rectangle : Shape
+{
+    public Rectangle(int a = 0, int b = 0) : base(a, b)
+    {
+
+    }
+    public override int area()
+    {
+        
+        return (width * height);
+    }
+}
+class Triangle : Shape
+{
+    public Triangle(int a = 0, int b = 0) : base(a, b)
+    {
+    }
+    public override int area()
+    {
+        
+        return (width * height / 2);
+    }
+}
+public class Caller
+{
+ 
+    public void Print()
+    {
+        Console.WriteLine("vvv");
+    }
+    public static void CallArea(Shape sh)
+    {
+        int a;
+        a = sh.area();
+        Console.WriteLine("Area: {0}", a);
+    }
+}
+
+
+public interface IAnimal
+{
+    void MakeSound();
+    
+}
+public class Lion:IAnimal
+{
+    public void MakeSound()
+    {
+        Console.WriteLine("lion make sound");
+    }
+}
+public class Cat : IAnimal
+{
+    public void MakeSound()
+    {
+        Console.WriteLine("Cat make sound");
     }
 }
