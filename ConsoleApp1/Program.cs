@@ -2,6 +2,7 @@
 
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Linq.Expressions;
 
 
 
@@ -358,10 +359,8 @@ public class Car
     }
 
 
-    private int numberrr = 99999;
-    public void secret()
-    {
-        Console.WriteLine("the scert nuber is :" + numberrr);
+////////////////////////////namespace
+///
 
    }
 }
